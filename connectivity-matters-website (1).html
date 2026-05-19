@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connectivity Matters Consulting LLC — Website Outline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D2340;
+    --teal: #1A6E6E;
+    --teal-light: #E8F4F4;
+    --gold: #C8961A;
+    --gold-light: #FDF4E0;
+    --cream: #F8F5EF;
+    --mid: #5A6472;
+    --light: #FFFFFF;
+    --border: #D4DDE8;
+    --text: #1A2535;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── PRINT / DOCUMENT CHROME ── */
+  .doc-header {
+    background: var(--navy);
+    color: white;
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .doc-header h1 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; letter-spacing: 0.01em; }
+  .doc-header p { font-size: 0.8rem; opacity: 0.65; margin-top: 0.25rem; }
+  .doc-badge { background: var(--gold); color: var(--navy); font-size: 0.7rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
+
+  /* ── MAIN LAYOUT ── */
+  .doc-body { max-width: 960px; margin: 0 auto; padding: 2.5rem 2rem; }
+
+  /* ── PAGE SECTIONS ── */
+  .page-block {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+  }
+
+  .page-label {
+    background: var(--navy);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .page-label .pg-num {
+    background: var(--gold);
+    color: var(--navy);
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+  }
+
+  /* ── SECTION BLOCKS WITHIN PAGES ── */
+  .section-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-row:last-child { border-bottom: none; }
+  .section-label {
+    background: var(--cream);
+    border-right: 1px solid var(--border);
+    padding: 1.25rem 1.25rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--mid);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .section-label .sq-hint {
+    font-size: 0.65rem;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--teal);
+    opacity: 0.85;
+  }
+  .section-content {
+    padding: 1.5rem 1.75rem;
+  }
+
+  /* ── CONTENT ATOMS ── */
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+  }
+  .subhead {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .eyebrow {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 0.4rem;
+  }
+  p { margin-bottom: 0.85rem; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+  .body-sm { font-size: 0.88rem; color: var(--mid); }
+
+  .cta-pill {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 0.75rem;
+    margin-right: 0.5rem;
+  }
+  .cta-ghost {
+    display: inline-block;
+    border: 1.5px solid var(--teal);
+    color: var(--teal);
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 0.75rem;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .stat-card {
+    background: var(--teal-light);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    border-left: 3px solid var(--teal);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 1;
+  }
+  .stat-desc { font-size: 0.75rem; color: var(--mid); margin-top: 0.3rem; }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .service-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+    border-top: 3px solid var(--teal);
+    background: white;
+  }
+  .service-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .service-card p { font-size: 0.85rem; color: var(--mid); margin: 0; }
+
+  .press-list { list-style: none; padding: 0; }
+  .press-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .press-item:last-child { border-bottom: none; }
+  .press-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    margin-top: 0.55rem;
+    flex-shrink: 0;
+  }
+  .press-text { font-size: 0.85rem; color: var(--mid); }
+  .press-source { font-weight: 600; color: var(--navy); font-size: 0.82rem; }
+
+  .highlight-box {
+    background: var(--gold-light);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+  }
+  .highlight-box p { font-size: 0.88rem; color: var(--navy); margin: 0; font-style: italic; }
+
+  .nav-bar {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+  .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  .nav-link { font-size: 0.8rem; color: var(--mid); text-decoration: none; }
+  .nav-link.active { color: var(--teal); font-weight: 600; border-bottom: 1.5px solid var(--teal); }
+  .nav-cta { margin-left: auto; background: var(--teal); color: white; font-size: 0.75rem; padding: 0.35rem 0.9rem; border-radius: 4px; font-weight: 600; }
+
+  .form-preview {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    background: var(--cream);
+  }
+  .form-field {
+    margin-bottom: 0.75rem;
+  }
+  .form-field label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--mid); margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .form-field .field-mock {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    height: 34px;
+    width: 100%;
+  }
+  .form-field .textarea-mock { height: 80px; }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-year { font-size: 0.75rem; font-weight: 600; color: var(--teal); }
+  .timeline-content h5 { font-size: 0.88rem; color: var(--navy); font-weight: 600; margin-bottom: 0.2rem; }
+  .timeline-content p { font-size: 0.8rem; color: var(--mid); margin: 0; }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+  .tag {
+    background: var(--teal-light);
+    color: var(--teal);
+    border-radius: 20px;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+
+  .squarespace-note {
+    background: #F0F7FF;
+    border: 1px dashed #93B8D8;
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+    color: #2A5F8A;
+    margin-top: 0.75rem;
+  }
+  .squarespace-note strong { color: #1A3F60; }
+
+  /* ── DIVIDERS ── */
+  .section-divider {
+    text-align: center;
+    padding: 1.5rem 0 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--mid);
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.75rem;
+    color: var(--mid);
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .section-row { grid-template-columns: 1fr; }
+    .section-label { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat-row { grid-template-columns: 1fr; }
+    .service-grid { grid-template-columns: 1fr; }
+    .doc-header { padding: 1.5rem; }
+    .doc-body { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div>
+    <h1>Connectivity Matters Consulting LLC</h1>
+    <p>Squarespace-Ready Website Outline — Homepage · Services · About</p>
+  </div>
+  <span class="doc-badge">Draft v1.0</span>
+</div>
+
+<div class="doc-body">
+
+  <!-- GLOBAL NAV PREVIEW -->
+  <div class="section-divider">Global Navigation</div>
+  <div class="nav-bar">
+    <span class="nav-logo">Connectivity Matters Consulting</span>
+    <div class="nav-links">
+      <a class="nav-link active">Home</a>
+      <a class="nav-link">Services</a>
+      <a class="nav-link">About</a>
+      <a class="nav-link">Press & Speaking</a>
+      <a class="nav-link">Contact</a>
+    </div>
+    <span class="nav-cta">Schedule a Call →</span>
+  </div>
+  <div class="squarespace-note"><strong>Squarespace tip:</strong> Use the Header block. Set your logo font to a serif (Playfair Display or Cormorant Garamond) and keep nav links in DM Sans or Aktiv Grotesk. Pin the CTA button with teal background (#1A6E6E). Enable "Solid on scroll" for professional stickiness.</div>
+
+  <!-- ═══════════════════════════════════ PAGE 1: HOMEPAGE ═══════════════════════════════════ -->
+
+  <div class="section-divider" style="padding-top: 2.5rem;">Page 1 — Homepage</div>
+
+  <div class="page-block">
+    <div class="page-label"><span class="pg-num">1</span> Homepage · connectivitymattersconsulting.com</div>
+
+    <!-- HERO -->
+    <div class="section-row">
+      <div class="section-label">
+        Hero Section
+        <span class="sq-hint">Squarespace: Cover Page or Banner block · Full-width image overlay</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Municipal Broadband · Digital Inclusion · Connectivity Policy</div>
+        <div class="headline">Helping Communities Build<br>Connectivity That Lasts</div>
+        <p>Connectivity Matters Consulting LLC brings decades of hands-on public-sector experience to municipalities, nonprofits, and community organizations ready to close the digital divide and build broadband infrastructure that works for everyone.</p>
+        <p>From designing citywide fiber programs to securing community adoption, we turn complex policy challenges into concrete, lasting results.</p>
+        <a class="cta-pill">Schedule a Free Consultation</a>
+        <a class="cta-ghost">View Our Services</a>
+        <div class="squarespace-note"><strong>Image guidance:</strong> Use an aerial cityscape or a split image of infrastructure/community meeting. Navy overlay at ~55% opacity. Headline in white Playfair Display at ~56px. Avoid stock photos of generic "tech" hands — ground visuals in real urban connectivity contexts.</div>
+      </div>
+    </div>
+
+    <!-- MISSION STRIP -->
+    <div class="section-row">
+      <div class="section-label">
+        Mission Statement
+        <span class="sq-hint">Squarespace: Text block · Background: Navy (#0D2340)</span>
+      </div>
+      <div class="section-content">
+        <div class="highlight-box">
+          <p>"Reliable, affordable internet is no longer a nice-to-have — it is infrastructure as essential as roads and water. We help local governments and nonprofits build the strategies, partnerships, and programs to make universal connectivity a reality in their communities."</p>
+        </div>
+        <p class="body-sm">— Aaron Meyerson, Founder & Principal Consultant</p>
+      </div>
+    </div>
+
+    <!-- WHY IT MATTERS / STATS -->
+    <div class="section-row">
+      <div class="section-label">
+        Context / Stats Strip
+        <span class="sq-hint">Squarespace: Summary block or 3-column layout · Background: Cream</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">The Challenge</div>
+        <div class="subhead">The Digital Divide Is a Policy Problem. We Know How to Solve It.</div>
+        <p>Across the country, millions of households — disproportionately low-income, Black, and Hispanic — lack reliable internet access. Closing this gap requires more than money: it takes strategic planning, multi-agency coordination, and community trust.</p>
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-num">25%</div>
+            <div class="stat-desc">of households in cities like Newark & Camden lack home internet access</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">90%</div>
+            <div class="stat-desc">of jobs in New Jersey require at least some digital skills</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">3×</div>
+            <div class="stat-desc">Newark named National Digital Inclusion Trailblazer three years in a row</div>
+          </div>
+        </div>
+        <div class="squarespace-note"><strong>Squarespace tip:</strong> Use a teal accent bar under each number. Source your stats to NDIA, Rutgers NJ State Policy Lab, and National Skills Coalition for credibility footnotes.</div>
+      </div>
+    </div>
+
+    <!-- SERVICES PREVIEW -->
+    <div class="section-row">
+      <div class="section-label">
+        Services Overview
+        <span class="sq-hint">Squarespace: 2-column or Gallery block · Teal border-top cards</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">What We Do</div>
+        <div class="subhead">Expert Guidance Across the Full Broadband Lifecycle</div>
+        <div class="service-grid" style="margin-top: 1rem;">
+          <div class="service-card">
+            <h4>Municipal Broadband Strategy</h4>
+            <p>Feasibility studies, network design frameworks, and public-private partnership structuring for cities ready to take control of their connectivity future.</p>
+          </div>
+          <div class="service-card">
+            <h4>Digital Inclusion Programs</h4>
+            <p>End-to-end program design for device access, digital skills training, and affordability initiatives that reach residents who need them most.</p>
+          </div>
+          <div class="service-card">
+            <h4>Broadband Policy & Planning</h4>
+            <p>Broadband development surveys, permitting policy, and interagency coordination frameworks that streamline deployment and reduce barriers to entry.</p>
+          </div>
+          <div class="service-card">
+            <h4>Grant Strategy & Compliance</h4>
+            <p>Federal and state funding navigation — from BEAD to NTIA — including application support, program design, and compliance guidance.</p>
+          </div>
+        </div>
+        <a class="cta-ghost" style="margin-top: 1rem;">See Full Services →</a>
+      </div>
+    </div>
+
+    <!-- FEATURED PRESS / CREDIBILITY -->
+    <div class="section-row">
+      <div class="section-label">
+        Press / Credibility Bar
+        <span class="sq-hint">Squarespace: Logo strip or Summary block · Background: Cream</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">As Seen In</div>
+        <div class="tag-row" style="margin-bottom: 1rem;">
+          <span class="tag">Forbes</span>
+          <span class="tag">ROI-NJ</span>
+          <span class="tag">NJBIZ</span>
+          <span class="tag">Telecompetitor</span>
+          <span class="tag">The Newark Times</span>
+          <span class="tag">Community Broadband Bits Podcast</span>
+          <span class="tag">Benton Foundation</span>
+        </div>
+        <div class="highlight-box">
+          <p>"Newark isn't just sitting around waiting for someone to help solve local challenges. They're stepping up to the plate and tackling them themselves." — Community Broadband Bits Podcast, Episode 587</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA FOOTER STRIP -->
+    <div class="section-row">
+      <div class="section-label">
+        Call to Action
+        <span class="sq-hint">Squarespace: CTA block · Background: Navy</span>
+      </div>
+      <div class="section-content">
+        <div class="subhead">Ready to Build a Connected Community?</div>
+        <p>Whether you're starting a feasibility study, designing a digital inclusion program, or navigating federal broadband funding, Connectivity Matters Consulting can help. Let's start the conversation.</p>
+        <a class="cta-pill">Schedule a Free 30-Minute Call</a>
+        <a class="cta-ghost">Send a Message</a>
+      </div>
+    </div>
+
+  </div><!-- /page-block homepage -->
+
+
+  <!-- ═══════════════════════════════════ PAGE 2: SERVICES ═══════════════════════════════════ -->
+
+  <div class="section-divider" style="padding-top: 2rem;">Page 2 — Services</div>
+
+  <div class="page-block">
+    <div class="page-label"><span class="pg-num">2</span> Services · /services</div>
+
+    <!-- SERVICES HERO -->
+    <div class="section-row">
+      <div class="section-label">
+        Page Hero
+        <span class="sq-hint">Squarespace: Banner block · Shorter than homepage · Navy bg</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Consulting Services</div>
+        <div class="headline" style="font-size: 1.7rem;">Strategic Guidance for<br>Communities Tackling Connectivity</div>
+        <p>Connectivity Matters Consulting works with municipal governments, nonprofits, and community development organizations to design, launch, and sustain broadband programs that close the digital divide. Every engagement is grounded in real implementation experience — not theory.</p>
+      </div>
+    </div>
+
+    <!-- SERVICE 1 -->
+    <div class="section-row">
+      <div class="section-label">
+        Service 1
+        <span class="sq-hint">Squarespace: Text + Accordion or expandable service block</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Service Area 01</div>
+        <div class="subhead">Municipal Broadband Strategy & Network Development</div>
+        <p>Many cities recognize the need for better broadband — but don't know where to start. We guide municipalities through the full arc of network planning: from community needs assessment and ISP landscape analysis, to infrastructure design, public-private partnership structuring, and launch.</p>
+        <p>Drawing on direct experience building and scaling <strong>Newark Fiber</strong> — a publicly-run fiber network serving thousands of active Wi-Fi users daily and connected to nearly 100 major business locations — we understand what it takes to move from vision to operational network.</p>
+        <div class="highlight-box">
+          <p>Relevant experience: Architect of Newark Fiber's growth strategy, connecting large businesses, enabling smart-city applications, and sustaining 7,200+ daily active Wi-Fi users. Former Deputy CTO for Broadband for the City of New York, where Aaron led the city's Internet Master Plan — one of the most ambitious municipal broadband efforts in U.S. history.</p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Feasibility Studies</span>
+          <span class="tag">Network Planning</span>
+          <span class="tag">Public-Private Partnerships</span>
+          <span class="tag">ISP Negotiations</span>
+          <span class="tag">Smart City Applications</span>
+          <span class="tag">Fiber Infrastructure</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE 2 -->
+    <div class="section-row">
+      <div class="section-label">
+        Service 2
+        <span class="sq-hint">Squarespace: Alternate-color row for visual rhythm</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Service Area 02</div>
+        <div class="subhead">Digital Inclusion Program Design & Implementation</div>
+        <p>Access without adoption is an incomplete solution. We design holistic digital inclusion programs that address all three pillars of the digital divide: affordable connectivity, device access, and digital skills training — with a focus on the communities most likely to be left behind.</p>
+        <p>Our work includes designing device refurbishment pipelines (including youth workforce programs), establishing community Wi-Fi hubs, coordinating subsidy enrollment campaigns, and building data collection systems to measure program impact and guide continuous improvement.</p>
+        <div class="highlight-box">
+          <p>Relevant experience: Led Newark's digital inclusion efforts that earned National Digital Inclusion Alliance "Trailblazer" recognition three consecutive years (2023, 2024, 2025). Designed the Hope Village 2 connectivity partnership, recognized with the NJ Gov Tech "Best IT Collaboration" award. Structured the Citizens Bank/Newark Fiber partnership delivering 15 years of free internet to South Ward residents.</p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Program Design</span>
+          <span class="tag">Device Access</span>
+          <span class="tag">Digital Skills Training</span>
+          <span class="tag">Affordable Connectivity Programs</span>
+          <span class="tag">Workforce Development</span>
+          <span class="tag">Community Partnerships</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE 3 -->
+    <div class="section-row">
+      <div class="section-label">
+        Service 3
+        <span class="sq-hint">Squarespace: Text block with left gold border accent</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Service Area 03</div>
+        <div class="subhead">Broadband Policy, Planning & Interagency Coordination</div>
+        <p>Broadband deployment is rarely stopped by a lack of technology — it's stopped by policy complexity. Permitting bottlenecks, siloed agencies, unclear franchise agreements, and the absence of data all slow communities down. We help untangle these barriers.</p>
+        <p>Our policy work includes developing broadband development survey programs for real estate permitting processes, designing interagency coordination frameworks, producing community connectivity assessments, and advising on smart building connectivity standards that ensure new development supports — not undermines — long-term digital equity goals.</p>
+        <div class="highlight-box">
+          <p>Relevant experience: As NYC Deputy CTO for Broadband, Aaron architected a single-point-of-contact system across 18 city agencies to streamline vendor access to city real estate — a model now cited nationally. In Newark, launched a Broadband Development Survey embedded in the permitting process to drive developer accountability for connectivity standards.</p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Broadband Master Plans</span>
+          <span class="tag">Permitting Policy</span>
+          <span class="tag">Interagency Frameworks</span>
+          <span class="tag">Smart Building Standards</span>
+          <span class="tag">Connectivity Assessments</span>
+          <span class="tag">Digital Equity Planning</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE 4 -->
+    <div class="section-row">
+      <div class="section-label">
+        Service 4
+        <span class="sq-hint">Squarespace: Continue alternating row style</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Service Area 04</div>
+        <div class="subhead">Federal & State Funding Strategy (BEAD, NTIA & Beyond)</div>
+        <p>The federal broadband funding landscape — BEAD, NTIA programs, FCC initiatives, and state-level grants — represents a once-in-a-generation investment opportunity. But accessing those funds requires more than filling out an application. It requires a strong program narrative, a clear deployment strategy, and compliance infrastructure built from day one.</p>
+        <p>We help municipalities and nonprofits identify the right funding opportunities, build compelling applications, and design program structures that satisfy grant requirements while serving community needs — and we bring experience from both the public and nonprofit side of these funding relationships.</p>
+        <div class="tag-row">
+          <span class="tag">BEAD Program</span>
+          <span class="tag">NTIA Grants</span>
+          <span class="tag">Application Development</span>
+          <span class="tag">Program Design</span>
+          <span class="tag">Compliance Frameworks</span>
+          <span class="tag">State Grant Navigation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE 5 -->
+    <div class="section-row">
+      <div class="section-label">
+        Service 5
+        <span class="sq-hint">Squarespace: Final service row or expandable accordion item</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Service Area 05</div>
+        <div class="subhead">Innovation Ecosystem Development & Tech Sector Engagement</div>
+        <p>Broadband is a foundation — but what communities build on top of it matters just as much. We support municipalities and economic development organizations in leveraging connectivity as a platform for innovation economy growth: attracting high-growth businesses, supporting tech startups, building workforce pipelines, and designing programs that connect residents to the jobs of the future.</p>
+        <p>This includes facilitating accelerator programs, structuring corporate-community partnerships, and developing smart city strategies that use connectivity to address quality-of-life challenges like urban heat, air quality, and public safety.</p>
+        <div class="highlight-box">
+          <p>Relevant experience: As Chief Innovation Economy Officer at Invest Newark and Newark Alliance, Aaron helped Newark emerge as a nationally recognized innovation hub — covered by Forbes, ROI-NJ, and featured at Newark Demo Day 2024 and 2025. Moderated the NJ FAST program spotlight at VC Day 2025, convening Prudential, Plug and Play, and leading NJ startups.</p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Innovation Economy Strategy</span>
+          <span class="tag">Tech Ecosystem Building</span>
+          <span class="tag">Corporate-Community Partnerships</span>
+          <span class="tag">Workforce Development</span>
+          <span class="tag">Smart City Strategy</span>
+          <span class="tag">Startup Ecosystem</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHO WE WORK WITH -->
+    <div class="section-row">
+      <div class="section-label">
+        Clients / Audience
+        <span class="sq-hint">Squarespace: 3-column icon + text block · Background: Cream</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Who We Work With</div>
+        <div class="subhead">Built for the Public and Nonprofit Sectors</div>
+        <div class="service-grid" style="margin-top: 0.75rem;">
+          <div class="service-card" style="border-top-color: var(--gold);">
+            <h4>Municipal Governments</h4>
+            <p>City halls, economic development corporations, and technology offices looking to launch or scale broadband infrastructure and digital equity programs.</p>
+          </div>
+          <div class="service-card" style="border-top-color: var(--gold);">
+            <h4>Nonprofits & CDFIs</h4>
+            <p>Community development organizations, digital inclusion nonprofits, and workforce development groups building connectivity programs for underserved residents.</p>
+          </div>
+          <div class="service-card" style="border-top-color: var(--gold);">
+            <h4>Housing Developers</h4>
+            <p>Affordable housing developers and property owners seeking to integrate connectivity planning into new development and ensure residents have access to quality internet.</p>
+          </div>
+          <div class="service-card" style="border-top-color: var(--gold);">
+            <h4>Foundations & Philanthropy</h4>
+            <p>Funders seeking expert guidance on grantmaking strategy, program evaluation, and the landscape of digital inclusion and broadband access initiatives.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENGAGEMENT CTA -->
+    <div class="section-row">
+      <div class="section-label">
+        Services CTA
+        <span class="sq-hint">Squarespace: CTA block · Navy or Teal background</span>
+      </div>
+      <div class="section-content">
+        <div class="subhead">Every Community Is Different. Every Engagement Is Custom.</div>
+        <p>Connectivity Matters Consulting offers flexible engagement models — from targeted advisory calls to multi-month strategic engagements. We don't apply off-the-shelf frameworks to complex community challenges. Let's talk about what your community needs.</p>
+        <a class="cta-pill">Book a Consultation</a>
+        <p class="body-sm" style="margin-top: 0.75rem;">Serving municipal and nonprofit clients nationwide with a focus on the Northeast.</p>
+      </div>
+    </div>
+
+  </div><!-- /page-block services -->
+
+
+  <!-- ═══════════════════════════════════ PAGE 3: ABOUT ═══════════════════════════════════ -->
+
+  <div class="section-divider" style="padding-top: 2rem;">Page 3 — About</div>
+
+  <div class="page-block">
+    <div class="page-label"><span class="pg-num">3</span> About · /about</div>
+
+    <!-- ABOUT HERO -->
+    <div class="section-row">
+      <div class="section-label">
+        Page Intro
+        <span class="sq-hint">Squarespace: 2-column block · Photo left, text right</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">About Connectivity Matters Consulting</div>
+        <div class="headline" style="font-size: 1.6rem;">Real Experience.<br>Real Results.</div>
+        <p>Connectivity Matters Consulting LLC was founded by Aaron Meyerson, one of the country's most experienced public-sector broadband strategists. Aaron has spent his career at the intersection of policy, technology, and community — building programs that connect real people to the internet in cities that refused to wait for the private sector to solve the problem for them.</p>
+        <p>From New York City's Internet Master Plan to Newark's nationally recognized digital inclusion program, Aaron has designed, launched, and scaled some of the most ambitious municipal connectivity initiatives in the United States.</p>
+        <div class="squarespace-note"><strong>Photo guidance:</strong> Use a professional headshot with a natural or urban background — not a staged studio look. Consider a candid from a speaking event or community meeting for authenticity. Link to LinkedIn: linkedin.com/in/aaron-meyerson/</div>
+      </div>
+    </div>
+
+    <!-- BIO -->
+    <div class="section-row">
+      <div class="section-label">
+        Full Bio
+        <span class="sq-hint">Squarespace: Text block with pullquote styling</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Aaron Meyerson — Founder & Principal Consultant</div>
+        <p>Aaron Meyerson has spent more than a decade helping cities and communities navigate the complex landscape of broadband access, digital inclusion, and connectivity policy. His work spans two of America's most complex urban environments — New York City and Newark, New Jersey — giving him a rare combination of large-scale policy architecture experience and ground-level implementation knowledge.</p>
+
+        <p>As <strong>Deputy Chief Technology Officer for Broadband for the City of New York</strong>, Aaron led the development of New York City's Internet Master Plan — one of the most comprehensive municipal broadband strategies in U.S. history. He built the interagency coordination framework that united 18 city agencies behind a single broadband vision, streamlining access to city-owned assets for ISPs and creating a model that cities across the country continue to study and adapt.</p>
+
+        <p>As <strong>Chief Innovation Economy Officer and Director of Broadband at Invest Newark and the Newark Alliance</strong>, Aaron drove the expansion of Newark Fiber — a municipally-operated broadband network serving thousands of active users and dozens of large commercial customers daily. Under his leadership, Newark was named a National Digital Inclusion Alliance "Digital Inclusion Trailblazer" for three consecutive years, structured multi-million-dollar public-private partnerships to deliver free internet to low-income residents, and won the New Jersey Excellence in Technology "Best IT Collaboration" award.</p>
+
+        <div class="highlight-box">
+          <p>"By supporting digital inclusion initiatives, we are giving residents support as they build their ladder into the innovation economy and beyond. We're also focused on ensuring the city's booming real estate growth is well connected and enables residents and businesses to thrive." — Aaron Meyerson, NJBIZ, 2026</p>
+        </div>
+
+        <p>Aaron is a nationally recognized voice on municipal broadband and digital equity, appearing on the <em>Community Broadband Bits Podcast</em> (Episodes 525 and 587), speaking at NJPAC, Newark Tech Week, NJ Gov Tech, and VC Day, and featured in Forbes, ROI-NJ, NJBIZ, Telecompetitor, and the Benton Foundation. He has served as Faculty for the American Association of Colleges & Universities Institute on Digital Equity.</p>
+
+        <p>Aaron founded Connectivity Matters Consulting to bring this depth of experience directly to municipalities, nonprofits, and community organizations across the country that are ready to stop waiting — and start building.</p>
+      </div>
+    </div>
+
+    <!-- CAREER TIMELINE -->
+    <div class="section-row">
+      <div class="section-label">
+        Experience Timeline
+        <span class="sq-hint">Squarespace: Timeline block or vertical accordion</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Career Highlights</div>
+        <div class="timeline-item">
+          <div class="timeline-year">Present</div>
+          <div class="timeline-content">
+            <h5>Founder & Principal Consultant — Connectivity Matters Consulting LLC</h5>
+            <p>Providing strategic broadband and digital inclusion consulting to municipalities, nonprofits, and community development organizations nationwide.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2022–2025</div>
+          <div class="timeline-content">
+            <h5>Chief Innovation Economy Officer & Director of Broadband — Invest Newark / Newark Alliance</h5>
+            <p>Led Newark Fiber expansion, digital inclusion programming, and innovation economy development. Three-time NDIA Trailblazer designation. NJ Gov Tech Best IT Collaboration award.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2020–2022</div>
+          <div class="timeline-content">
+            <h5>Deputy Chief Technology Officer for Broadband — City of New York</h5>
+            <p>Architect of New York City's Internet Master Plan. Built interagency coordination framework across 18 city agencies. Developed policy to unlock city assets for broadband deployment.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Earlier</div>
+          <div class="timeline-content">
+            <h5>Policy & Digital Equity Research</h5>
+            <p>Produced research including a landmark analysis of the Bronx digital divide, with actionable policy recommendations for device access, skills training, and community-based broadband programs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRESS & SPEAKING -->
+    <div class="section-row">
+      <div class="section-label">
+        Press & Speaking
+        <span class="sq-hint">Squarespace: Summary or list block with logo images</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">In the Press & On Stage</div>
+        <ul class="press-list">
+          <li class="press-item">
+            <div class="press-dot"></div>
+            <div><span class="press-source">Community Broadband Bits Podcast (Ep. 587, Jan 2024)</span><div class="press-text">"Connecting the Last Twenty Percent in Newark" — featured on the nation's leading community broadband podcast, discussing Newark Fiber's growth and smart-city applications.</div></div>
+          </li>
+          <li class="press-item">
+            <div class="press-dot"></div>
+            <div><span class="press-source">Community Broadband Bits Podcast (Ep. 525, Nov 2022)</span><div class="press-text">"Learning from New York City's Master Internet Plan" — deep dive on the architecture and lessons of NYC's landmark broadband strategy.</div></div>
+          </li>
+          <li class="press-item">
+            <div class="press-dot"></div>
+            <div><span class="press-source">NJBIZ (2026)</span><div class="press-text">Featured on Newark's third consecutive NDIA Digital Inclusion Trailblazer designation and vision for continued broadband expansion.</div></div>
+          </li>
+          <li class="press-item">
+            <div class="press-dot"></div>
+            <div><span class="press-source">Telecompetitor (2023)</span><div class="press-text">Featured interview on the Citizens Bank/Newark Fiber partnership delivering 15 years of free internet access to South Ward residents.</div></div>
+          </li>
+          <li class="press-item">
+            <div class="press-dot"></div>
+            <div><span class="press-source">NJ Gov Tech Awards — Panel (May 2025)</span><div class="press-text">Panelist: "Smart Cities and Digital Inclusion: Building Connected Communities." Newark also received Best IT Collaboration award.</div></div>
+          </li>
+          <li class="press-item">
+            <div class="press-dot"></div>
+            <div><span class="press-source">NJPAC — Newark Tech Week Panel (Oct 2023)</span><div class="press-text">Panelist: "The Newark Advantage" — discussing technology leadership and digital equity in a city leading the charge on connectivity.</div></div>
+          </li>
+          <li class="press-item">
+            <div class="press-dot"></div>
+            <div><span class="press-source">Forbes (2024–2025)</span><div class="press-text">Featured in coverage of Newark's emerging innovation economy and tech ecosystem renaissance.</div></div>
+          </li>
+          <li class="press-item">
+            <div class="press-dot"></div>
+            <div><span class="press-source">Benton Foundation / ROI-NJ / The Newark Times</span><div class="press-text">Regular coverage of Newark's digital inclusion programs, Newark Fiber expansion, and national Trailblazer recognition.</div></div>
+          </li>
+        </ul>
+        <div class="squarespace-note"><strong>Squarespace tip:</strong> Create a separate "Press & Speaking" page linked from About. Use a grid of publication logos as an image gallery with linked captions. Consider embedding podcast episodes directly using the Audio or Embed block.</div>
+      </div>
+    </div>
+
+    <!-- VALUES / APPROACH -->
+    <div class="section-row">
+      <div class="section-label">
+        Our Approach
+        <span class="sq-hint">Squarespace: 3-column icon-text block · Teal accent</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Our Approach</div>
+        <div class="subhead">Practical. Equitable. Community-First.</div>
+        <div class="service-grid" style="margin-top: 0.75rem;">
+          <div class="service-card">
+            <h4>Implementation Experience</h4>
+            <p>We've sat on both sides of the table — as city officials making decisions, and as program architects doing the work. Our advice is grounded in what actually happens when policy meets implementation.</p>
+          </div>
+          <div class="service-card">
+            <h4>Equity as a Design Principle</h4>
+            <p>Digital inclusion isn't a checkbox — it's the goal. Every recommendation we make is evaluated through the lens of who benefits, who is left out, and how to close that gap.</p>
+          </div>
+          <div class="service-card">
+            <h4>Cross-Sector Partnership</h4>
+            <p>The best broadband programs don't come from government or the private sector alone. We specialize in designing partnerships that align the incentives of cities, nonprofits, ISPs, developers, and funders.</p>
+          </div>
+          <div class="service-card">
+            <h4>Honest, Rigorous Analysis</h4>
+            <p>We ask hard questions — about cost efficiency, program reach, and long-term sustainability — so our clients invest in solutions that actually work, not programs that look good on paper.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT CTA -->
+    <div class="section-row">
+      <div class="section-label">
+        About Page CTA
+        <span class="sq-hint">Squarespace: CTA block at bottom of About page</span>
+      </div>
+      <div class="section-content">
+        <div class="subhead">Let's Work Together</div>
+        <p>Connectivity Matters Consulting is available for strategic engagements, advisory work, speaking engagements, and policy consulting. Connect with Aaron on <a href="https://www.linkedin.com/in/aaron-meyerson/" style="color: var(--teal); font-weight: 600;">LinkedIn</a> or reach out directly to start a conversation.</p>
+        <a class="cta-pill">Schedule a Call</a>
+        <a class="cta-ghost">Send a Message</a>
+        <p class="body-sm" style="margin-top: 1rem;">Based in the New York/New Jersey metro area. Available for remote and in-person engagements nationwide.</p>
+      </div>
+    </div>
+
+  </div><!-- /page-block about -->
+
+
+  <!-- ═══════════════════════════════════ CONTACT PAGE STUB ═══════════════════════════════════ -->
+
+  <div class="section-divider" style="padding-top: 2rem;">Page 4 — Contact (Stub)</div>
+
+  <div class="page-block">
+    <div class="page-label"><span class="pg-num">4</span> Contact · /contact</div>
+    <div class="section-row">
+      <div class="section-label">
+        Contact Form
+        <span class="sq-hint">Squarespace: Form block · Standard contact layout</span>
+      </div>
+      <div class="section-content">
+        <div class="eyebrow">Get in Touch</div>
+        <div class="subhead">Let's Start a Conversation</div>
+        <p>Ready to discuss a broadband strategy, digital inclusion program, or policy challenge? Fill out the form below and Aaron will respond within 2 business days.</p>
+        <div class="form-preview" style="margin-top: 1rem;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div class="form-field">
+              <label>First Name</label>
+              <div class="field-mock"></div>
+            </div>
+            <div class="form-field">
+              <label>Last Name</label>
+              <div class="field-mock"></div>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Organization / Municipality</label>
+            <div class="field-mock"></div>
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <div class="field-mock"></div>
+          </div>
+          <div class="form-field">
+            <label>Area of Interest</label>
+            <div class="field-mock"></div>
+          </div>
+          <div class="form-field">
+            <label>Tell Us About Your Project</label>
+            <div class="field-mock textarea-mock"></div>
+          </div>
+          <div style="text-align: right; margin-top: 0.5rem;">
+            <a class="cta-pill" style="margin: 0;">Submit →</a>
+          </div>
+        </div>
+        <div class="squarespace-note" style="margin-top: 1rem;"><strong>Squarespace tip:</strong> Use the Form block with email notifications sent to your business address. Add a Calendly embed (via Embed block) below the form for direct scheduling. Consider adding LinkedIn and a newsletter signup if you plan to publish thought leadership content.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ GLOBAL FOOTER ═══════════════════════════════════ -->
+
+  <div class="section-divider" style="padding-top: 2rem;">Global Footer</div>
+  <div class="page-block">
+    <div class="page-label">Footer — Appears on All Pages</div>
+    <div class="section-row">
+      <div class="section-label">
+        Footer Content
+        <span class="sq-hint">Squarespace: Footer editor · 3-column layout · Navy background</span>
+      </div>
+      <div class="section-content">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+          <div>
+            <p style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem;">Connectivity Matters Consulting LLC</p>
+            <p class="body-sm">Expert broadband strategy and digital inclusion consulting for municipalities and nonprofits.</p>
+            <p class="body-sm" style="margin-top: 0.5rem;">New York/New Jersey Metro · Serving clients nationwide</p>
+          </div>
+          <div>
+            <p style="font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); margin-bottom: 0.5rem;">Quick Links</p>
+            <p class="body-sm">Home · Services · About · Press · Contact</p>
+          </div>
+          <div>
+            <p style="font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); margin-bottom: 0.5rem;">Connect</p>
+            <p class="body-sm"><a href="https://www.linkedin.com/in/aaron-meyerson/" style="color: var(--teal);">LinkedIn — Aaron Meyerson</a></p>
+            <p class="body-sm" style="margin-top: 0.3rem;">© 2025 Connectivity Matters Consulting LLC. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /doc-body -->
+
+<div class="doc-footer">
+  Connectivity Matters Consulting LLC — Website Outline · Prepared by Connectivity Matters Consulting · All content draft for review
+</div>
+
+</body>
+</html>
